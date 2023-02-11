@@ -13,7 +13,24 @@ function App() {
     const modalSec = document.getElementById("modal")
     modalSec.style.display="none"
   }
-  console.log(showModal);
+  const handelSubmitForm=(e)=>{
+    e.preventDefault()
+    console.log(document.getElementsByTagName('input')[0].value);
+    const phoneNumber=document.getElementsByTagName('input')[0].value
+    const emailAddress=document.getElementsByTagName('input')[1].value
+    const webSite=document.getElementsByTagName('input')[2].value
+    const location=document.getElementsByTagName('input')[3].value
+    const formData={
+      phoneNumber,
+      emailAddress,
+      webSite,
+      location,
+    }
+    console.log(formData);
+
+
+  }
+
 
   return (
     <div className="main-content">
@@ -41,7 +58,7 @@ function App() {
         </button>
       </div>
       <div className="top-sec"></div>
-      <div id="modal" className="modal-sec modal-sec-none">
+      <form onSubmit={handelSubmitForm} id="modal" className="modal-sec modal-sec-none">
         <button
           id="close-modal"
           onClick={handelHideModal}
@@ -55,12 +72,12 @@ function App() {
         >
           X
         </button>
-        <input type="" placeholder="what is your number?" />
-        <input type="email" placeholder="what is your email?" />
-        <input type="website" placeholder="what is your website?" />
-        <input type="location" placeholder="where are you?" />
-        <button className="submit-btn">submit</button>
-      </div>
+        <input    type="" placeholder="what is your number?" />
+        <input   type="email" placeholder="what is your email?" />
+        <input   type="website" placeholder="what is your website?" />
+        <input   type="location" placeholder="where are you?" />
+        <button   id="submit" type="submit" className="submit-btn">submit</button>
+      </form>
     </div>
   );
 }
