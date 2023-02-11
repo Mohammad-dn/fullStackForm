@@ -1,41 +1,42 @@
 import * as React from "react";
 import style from "./app.css";
+import ModalForAdd from "./components/modal";
 function App() {
   const [showModal, setShowModal] = React.useState(false);
-  const handelShowModal = () =>{
+  const handelShowModal = () => {
     setShowModal(!showModal);
-    const modalSec = document.getElementById("modal")
-    modalSec.style.display="flex"
-  }
-  const handelHideModal = () =>{
+    const modalSec = document.getElementById("modal");
+    modalSec.style.display = "flex";
+  };
+  const handelHideModal = () => {
     setShowModal(!showModal);
 
-    const modalSec = document.getElementById("modal")
-    modalSec.style.display="none"
-  }
-  const handelSubmitForm=(e)=>{
-    e.preventDefault()
-    console.log(document.getElementsByTagName('input')[0].value);
-    const phoneNumber=document.getElementsByTagName('input')[0].value
-    const emailAddress=document.getElementsByTagName('input')[1].value
-    const webSite=document.getElementsByTagName('input')[2].value
-    const location=document.getElementsByTagName('input')[3].value
+    const modalSec = document.getElementById("modal");
+    modalSec.style.display = "none";
+  };
+  const handelSubmitForm = (e) => {
+    e.preventDefault();
+    console.log(document.getElementsByTagName("input")[0].value);
+    const phoneNumber = document.getElementsByTagName("input")[0].value;
+    const emailAddress = document.getElementsByTagName("input")[1].value;
+    const webSite = document.getElementsByTagName("input")[2].value;
+    const location = document.getElementsByTagName("input")[3].value;
+    const colorTheme=document.getElementsByTagName("input")[4].value;
+    console.log(colorTheme);
 
-    fetch('http://localhost:3000/formdata', {
-      method: 'POST',
+    fetch("http://localhost:3000/formdata", {
+      method: "POST",
       headers: {
-        'content-Type': "application/json"
-    },
+        "content-Type": "application/json",
+      },
       body: JSON.stringify({
         phoneNumber,
         emailAddress,
         webSite,
         location,
-      })
-  })
-
-  }
-
+      }),
+    });
+  };
 
   return (
     <div className="main-content">
@@ -63,27 +64,7 @@ function App() {
         </button>
       </div>
       <div className="top-sec"></div>
-      <form onSubmit={handelSubmitForm} id="modal" className="modal-sec modal-sec-none">
-        <button
-          id="close-modal"
-          onClick={handelHideModal}
-          style={{
-            color: "white",
-            position: "absolute",
-            top: "10%",
-            right: "5%",
-            fontSize: "30px",
-          }}
-        >
-          X
-        </button>
-        <input className="modal-sec-input"    type="" placeholder="what is your number?" />
-        <input  className="modal-sec-input"  type="email" placeholder="what is your email?" />
-        <input  className="modal-sec-input"  type="website" placeholder="what is your website?" />
-        <input  className="modal-sec-input"  type="location" placeholder="where are you?" />
-        <input type="color" placeholder="theme" />
-        <button   id="submit" type="submit" className="submit-btn">submit</button>
-      </form>
+<ModalForAdd/>
     </div>
   );
 }
