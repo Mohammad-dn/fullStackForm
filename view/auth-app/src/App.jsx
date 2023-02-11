@@ -20,14 +20,19 @@ function App() {
     const emailAddress=document.getElementsByTagName('input')[1].value
     const webSite=document.getElementsByTagName('input')[2].value
     const location=document.getElementsByTagName('input')[3].value
-    const formData={
-      phoneNumber,
-      emailAddress,
-      webSite,
-      location,
-    }
-    console.log(formData);
 
+    fetch('http://localhost:3000/formdata', {
+      method: 'POST',
+      headers: {
+        'content-Type': "application/json"
+    },
+      body: JSON.stringify({
+        phoneNumber,
+        emailAddress,
+        webSite,
+        location,
+      })
+  })
 
   }
 
@@ -72,10 +77,11 @@ function App() {
         >
           X
         </button>
-        <input    type="" placeholder="what is your number?" />
-        <input   type="email" placeholder="what is your email?" />
-        <input   type="website" placeholder="what is your website?" />
-        <input   type="location" placeholder="where are you?" />
+        <input className="modal-sec-input"    type="" placeholder="what is your number?" />
+        <input  className="modal-sec-input"  type="email" placeholder="what is your email?" />
+        <input  className="modal-sec-input"  type="website" placeholder="what is your website?" />
+        <input  className="modal-sec-input"  type="location" placeholder="where are you?" />
+        <input type="color" placeholder="theme" />
         <button   id="submit" type="submit" className="submit-btn">submit</button>
       </form>
     </div>
