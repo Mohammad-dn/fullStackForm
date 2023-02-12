@@ -116,12 +116,12 @@ body {
   display: flex;
   justify-content: center;
   flex-direction: column;
-  width: 80%;
+  width: 60%;
   align-items: center;
   background-color: hsla(60, 7%, 3%, 0.829);
-  padding: 10%;
+  padding: 5%;
   position: relative;
-  gap: 20px;
+  left: 10%;
   border-radius: 30px;
   /* transform: translate(-50%, -50%); */
 }

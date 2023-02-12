@@ -1,15 +1,14 @@
-import React from "react";
+import React, { useEffect } from "react";
 
-function ModalForAdd() {
-  const [showModal, setShowModal] = React.useState(false);
+function ModalForAdd(props) {
+  const [showModal, setShowModal] = React.useState(true);
+  const [formData, setFormData] = React.useState([]);
+  console.log(showModal);
   const handelShowModal = () => {
-    setShowModal(!showModal);
     const modalSec = document.getElementById("modal");
-    modalSec.style.display = "flex";
+    modalSec.style.display = "none";
   };
   const handelHideModal = () => {
-    setShowModal(!showModal);
-
     const modalSec = document.getElementById("modal");
     modalSec.style.display = "none";
   };
@@ -21,9 +20,16 @@ function ModalForAdd() {
     const webSite = document.getElementsByTagName("input")[2].value;
     const location = document.getElementsByTagName("input")[3].value;
     const avatar = document.getElementsByTagName("input")[4].value;
-
     const colorTheme = document.getElementsByTagName("input")[5].value;
-
+    setFormData([
+      phoneNumber,
+      emailAddress,
+      webSite,
+      location,
+      avatar,
+      colorTheme,
+    ]);
+    console.log(formData);
     fetch("http://localhost:3000/formdata", {
       method: "POST",
       headers: {
@@ -35,7 +41,7 @@ function ModalForAdd() {
         webSite,
         location,
         colorTheme,
-        avatar
+        avatar,
       }),
     });
   };

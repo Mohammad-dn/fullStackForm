@@ -2,41 +2,14 @@ import * as React from "react";
 import style from "./app.css";
 import ModalForAdd from "./components/modal";
 function App() {
-  const [showModal, setShowModal] = React.useState(false);
+  const [showModal, setShowModal] = React.useState(true);
   const handelShowModal = () => {
-    setShowModal(!showModal);
     const modalSec = document.getElementById("modal");
     modalSec.style.display = "flex";
+  
   };
-  const handelHideModal = () => {
-    setShowModal(!showModal);
 
-    const modalSec = document.getElementById("modal");
-    modalSec.style.display = "none";
-  };
-  const handelSubmitForm = (e) => {
-    e.preventDefault();
-    console.log(document.getElementsByTagName("input")[0].value);
-    const phoneNumber = document.getElementsByTagName("input")[0].value;
-    const emailAddress = document.getElementsByTagName("input")[1].value;
-    const webSite = document.getElementsByTagName("input")[2].value;
-    const location = document.getElementsByTagName("input")[3].value;
-    const colorTheme=document.getElementsByTagName("input")[4].value;
-    console.log(colorTheme);
-
-    fetch("http://localhost:3000/formdata", {
-      method: "POST",
-      headers: {
-        "content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        phoneNumber,
-        emailAddress,
-        webSite,
-        location,
-      }),
-    });
-  };
+// console.log(req.body);
 
   return (
     <div className="main-content">
@@ -64,7 +37,7 @@ function App() {
         </button>
       </div>
       <div className="top-sec"></div>
-<ModalForAdd/>
+        <ModalForAdd/>
     </div>
   );
 }
