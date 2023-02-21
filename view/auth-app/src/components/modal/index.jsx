@@ -3,7 +3,6 @@ import React, { useEffect } from "react";
 function ModalForAdd(props) {
   const [showModal, setShowModal] = React.useState(true);
   const [formData, setFormData] = React.useState([]);
-  console.log(showModal);
   const handelShowModal = () => {
     const modalSec = document.getElementById("modal");
     modalSec.style.display = "none";
@@ -14,7 +13,6 @@ function ModalForAdd(props) {
   };
   const handelSubmitForm = (e) => {
     e.preventDefault();
-    console.log(document.getElementsByTagName("input")[0].value);
     const phoneNumber = document.getElementsByTagName("input")[0].value;
     const emailAddress = document.getElementsByTagName("input")[1].value;
     const webSite = document.getElementsByTagName("input")[2].value;
@@ -29,7 +27,6 @@ function ModalForAdd(props) {
       avatar,
       colorTheme,
     ]);
-    console.log(formData);
     fetch("http://localhost:3000/formdata", {
       method: "POST",
       headers: {
@@ -92,5 +89,4 @@ function ModalForAdd(props) {
     </form>
   );
 }
-
 export default ModalForAdd;

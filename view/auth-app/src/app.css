@@ -7,27 +7,22 @@ body {
 }
 
 .pink-sec {
-  background: linear-gradient(
-    90deg,
-    rgb(241 73 115) 37%,
-    rgb(56 31 31) 37%,
-    rgb(52 35 35) 69%,
-    rgb(192 60 93) 37%
-  );
   height: 164%;
   width: 42%;
   position: fixed;
   right: 62%;
   transform: rotate(132deg);
 }
+.black-sec{
+  height: 94%;
+  width: 24%;
+  position: fixed;
+  right: 45%;
+  background-color: #1b1a1a;
+
+}
 .top-sec {
-  background: linear-gradient(
-    90deg,
-    rgb(241 73 115) 37%,
-    rgb(241 73 115) 37%,
-    rgb(241 73 115) 69%,
-    rgb(63, 29, 38) 37%
-  );
+
   height: 119%;
   width: 17%;
   position: fixed;
@@ -113,7 +108,6 @@ body {
   padding: 1%;
 }
 .modal-sec{
-  display: flex;
   justify-content: center;
   flex-direction: column;
   width: 60%;
@@ -123,6 +117,7 @@ body {
   position: relative;
   left: 10%;
   border-radius: 30px;
+  display: none;
   /* transform: translate(-50%, -50%); */
 }
 
